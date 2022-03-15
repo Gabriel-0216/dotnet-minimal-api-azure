@@ -17,11 +17,9 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(buil
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+
 
 app.MapPost("/post", ([FromServices] PessoaRepository repo, Pessoa pessoa) => repo.Add(pessoa));
 app.MapPost("/get", ([FromServices] PessoaRepository repo) => repo.Get());

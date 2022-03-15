@@ -22,7 +22,7 @@ var app = builder.Build();
 
 
 app.MapPost("/post", ([FromServices] PessoaRepository repo, Pessoa pessoa) => repo.Add(pessoa));
-app.MapPost("/get", ([FromServices] PessoaRepository repo) => repo.Get());
+app.MapGet("/get", ([FromServices] PessoaRepository repo) => repo.Get());
 
 
 

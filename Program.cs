@@ -56,7 +56,7 @@ app.MapPut("/update/id/{id:int}", async ([FromServices] PessoaRepository repo, [
     return Results.BadRequest();
 });
 
-app.MapDelete("delete", async ([FromServices] PessoaRepository repo, [FromRoute] int id) => {
+app.MapDelete("delete/id/{id:int}", async ([FromServices] PessoaRepository repo, [FromRoute] int id) => {
         var responseDto = new ResponseDto();
     var get = await repo.GetById(id);
         if(get is null) return Results.NotFound();
